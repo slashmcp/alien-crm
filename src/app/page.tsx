@@ -105,7 +105,7 @@ export default function AutomationAlienHome() {
           <p className="text-gray-400 mb-10 max-w-2xl mx-auto">
             If you have a B2B offer that converts, but you don't have enough volume, we will build the machine that feeds you. Let's talk architecture.
           </p>
-          <a href="mailto:will@automationalien.com" className="inline-flex bg-white hover:bg-gray-200 text-black px-10 py-5 rounded-full font-extrabold items-center justify-center transition-all hover:scale-105 active:scale-95 text-lg">
+          <a href="mailto:will@automationalien.com?subject=I%20want%20to%20deploy%20an%20outbound%20system&body=Hey%20Will%2C%0A%0AI%20saw%20your%20site%20and%20I%27m%20interested%20in%20learning%20more%20about%20your%20lead%20gen%20infrastructure.%0A%0A" className="inline-flex bg-white hover:bg-gray-200 text-black px-10 py-5 rounded-full font-extrabold items-center justify-center transition-all hover:scale-105 active:scale-95 text-lg">
             Email will@automationalien.com <Zap size={20} className="ml-2 text-green-600" />
           </a>
         </section>
