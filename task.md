@@ -1,0 +1,8 @@
+- [x] Initialize Next.js project (`alien-crm`).
+- [x] Install dependencies (`resend`, `lucide-react`, `prisma`).
+- [x] Configure `.env` with Resend API key.
+- `[/]` Build dark-mode layout and sidebar.
+- [x] Build Google Maps prospector interface.
+- [x] Build Kanban pipeline.
+- [x] Build Resend API route for automated outreach.
+- [x] Connect The Brain (AI Pitch Auditing)
