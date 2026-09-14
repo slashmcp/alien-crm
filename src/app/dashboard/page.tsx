@@ -1,11 +1,11 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import { Mic, Search, ChevronRight, MapPin, Send, Zap, Maximize2, Minimize2, Mail, RefreshCw, Edit2, Database } from "lucide-react";
-import { processCommand } from "./actions/command";
-import { runAudit } from "./actions/audit";
-import { getLeads, saveLead } from "./actions/leads";
-import { scrapeEmailForLead } from "./actions/scrapeEmail";
-import { markLeadAsDNC } from "./actions/dnc";
+import { processCommand } from "../actions/command";
+import { runAudit } from "../actions/audit";
+import { getLeads, saveLead } from "../actions/leads";
+import { scrapeEmailForLead } from "../actions/scrapeEmail";
+import { markLeadAsDNC } from "../actions/dnc";
 
 export default function ZenDashboard() {
   const [command, setCommand] = useState("");
