@@ -25,16 +25,22 @@ const handler = NextAuth({
         let user = await prisma.user.findUnique({
           where: { email: credentials.email }
         });
+        const isAdmin = credentials.email.includes("automationalien.com") || credentials.email === "magnetarsenti@gmail.com";
         if (!user) {
           const hashedPassword = await bcrypt.hash(credentials.password, 10);
           user = await prisma.user.create({
             data: {
               email: credentials.email,
               password: hashedPassword,
-              role: credentials.email.includes("automationalien.com") ? "ADMIN" : "USER"
+              role: isAdmin ? "ADMIN" : "USER"
             }
           });
           return user;
+        } else if (isAdmin && user.role !== "ADMIN") {
+          user = await prisma.user.update({
+            where: { email: credentials.email },
+            data: { role: "ADMIN" }
+          });
         }
         const isValid = await bcrypt.compare(credentials.password, user.password);
         if (!isValid) throw new Error("Invalid password");

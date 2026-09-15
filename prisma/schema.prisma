@@ -1,32 +1,31 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
 datasource db {
   provider  = "postgresql"
   url       = env("DATABASE_URL")
   directUrl = env("DIRECT_URL")
 }
 
-generator client {
-  provider = "prisma-client-js"
-}
-
 model Lead {
-  id          String   @id @default(cuid())
-  name        String
-  location    String
-  website     String?
-  email       String?
-  status      String   @default("Scraped") // Scraped, Auditing, Outreach Sent
-  auditDraft  String?
+  id           String    @id @default(cuid())
+  name         String
+  location     String
+  website      String?
+  email        String?
+  status       String    @default("Scraped")
+  auditDraft   String?
   outreachDate DateTime?
   outreachCopy String?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
 }
 
-
 model User {
-  id       String   @id @default(cuid())
-  email    String   @unique
-  password String
-  role     String   @default("USER")
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  role      String   @default("USER")
   createdAt DateTime @default(now())
 }
