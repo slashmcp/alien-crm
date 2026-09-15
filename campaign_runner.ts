@@ -72,29 +72,30 @@ async function runCampaign() {
 
     const conversionAction = getConversionAction(lead.name);
     
-    // Construct the highly-optimized cold email
+    // Construct the refined hybrid pitch
     const htmlBody = `
-      <div style="font-family: sans-serif; font-size: 15px; color: #333; line-height: 1.5;">
+      <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 15px; color: #222; line-height: 1.6; max-width: 600px;">
         <p>Hi team,</p>
-        <p>I came across ${lead.name} and noticed you have strong Google reviews, but when I clicked through to your website, it was a bit hard to navigate on mobile and missing a clear way for customers to ${conversionAction} without calling.</p>
-        <p>I mocked up a fast, modern version of your site that makes it incredibly easy for visitors to request an estimate and turns more of your Google traffic into actual jobs.</p>
-        <p>No pressure—I'm happy to send the preview over if you'd like to see it.</p>
+        <p>I came across ${lead.name} and noticed your strong reputation in ${lead.location}.</p>
+        <p>A lot of local contractors we talk with lose potential jobs because property owners want a quick estimate or inspection date without having to play phone tag during work hours.</p>
+        <p>I put together a clean, interactive mockup for ${lead.name} showing an automated estimate & lead capture system that lets local customers request quotes and schedule appointments 24/7.</p>
+        <p>No pressure at all—I'm happy to send the preview over if you'd like to check it out.</p>
         <p>Would you like me to send the mockup link?</p>
-        <p>Best,<br>Will<br><a href="https://automationalien.com" style="color: #0066cc;">automationalien.com</a></p>
+        <p style="margin-top: 24px;">Best,<br><strong>Will</strong><br><a href="https://automationalien.com" style="color: #10b981; text-decoration: none; font-weight: 500;">automationalien.com</a></p>
         
-        <div style="margin-top: 50px; font-size: 11px; color: #999;">
-          <p>123 Main St, Austin, TX 78701<br>
-          If you don't want to receive these emails, simply reply "unsubscribe".</p>
+        <div style="margin-top: 45px; border-top: 1px solid #eee; padding-top: 12px; font-size: 11px; color: #888;">
+          <p>Automation Alien • Austin, TX<br>
+          If you'd prefer not to hear from us, just reply with "unsubscribe" and we won't reach out again.</p>
         </div>
       </div>
     `;
 
     try {
       const info = await transporter.sendMail({
-        from: '"Will" <will@automationalien.com>', // sender address
+        from: '"Will" <will@automationalien.com>',
         replyTo: 'will@automationalien.com',
         to: lead.email as string,
-        subject: `Quick idea for ${lead.name}'s website`,
+        subject: `Quick idea for ${lead.name} (interactive mockup)`,
         html: htmlBody,
       });
 
