@@ -1,0 +1,22 @@
+{
+  "name": "alien-verify-sdk",
+  "version": "1.0.0",
+  "description": "Ultra-fast email verification SDK for autonomous AI agents and cold outreach systems.",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsup index.ts --format cjs,esm --dts"
+  },
+  "keywords": [
+    "email-verifier",
+    "email-validation",
+    "dns-mx",
+    "ai-agents",
+    "cold-email",
+    "b2b"
+  ],
+  "author": "Automation Alien <will@automationalien.com>",
+  "license": "MIT",
+  "homepage": "https://automationalien.com/verify"
+}

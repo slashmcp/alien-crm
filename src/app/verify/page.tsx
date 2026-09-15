@@ -128,16 +128,71 @@ export default function VerifyLandingPage() {
 
               {testResult && (
                 <div className="animate-in fade-in slide-in-from-bottom-2 duration-300">
-                  <div className={`p-4 rounded-lg border ${testResult.valid ? 'bg-green-500/10 border-green-500/20' : 'bg-red-500/10 border-red-500/20'}`}>
-                    <div className="flex items-center gap-2 mb-2">
-                      {testResult.valid ? <CheckCircle className="text-green-500" size={16} /> : <XCircle className="text-red-500" size={16} />}
-                      <span className={`font-bold text-sm ${testResult.valid ? 'text-green-400' : 'text-red-400'}`}>
-                        {testResult.valid ? 'Valid Domain MX' : 'Invalid / Dead Domain'}
-                      </span>
+                  <div className={`p-4 rounded-xl border ${
+                    testResult.verdict === 'SAFE_TO_SEND' 
+                      ? 'bg-emerald-500/10 border-emerald-500/30' 
+                      : testResult.verdict === 'RISKY'
+                      ? 'bg-amber-500/10 border-amber-500/30'
+                      : 'bg-rose-500/10 border-rose-500/30'
+                  }`}>
+                    {/* Header with Score & Verdict */}
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="flex items-center gap-2">
+                        {testResult.valid ? (
+                          <CheckCircle className={testResult.verdict === 'SAFE_TO_SEND' ? 'text-emerald-400' : 'text-amber-400'} size={18} />
+                        ) : (
+                          <XCircle className="text-rose-400" size={18} />
+                        )}
+                        <span className={`font-bold text-sm tracking-wide ${
+                          testResult.verdict === 'SAFE_TO_SEND' 
+                            ? 'text-emerald-400' 
+                            : testResult.verdict === 'RISKY'
+                            ? 'text-amber-400'
+                            : 'text-rose-400'
+                        }`}>
+                          {testResult.verdict === 'SAFE_TO_SEND' ? 'SAFE TO SEND' : testResult.verdict === 'RISKY' ? 'RISKY' : 'DO NOT SEND'}
+                        </span>
+                      </div>
+                      {typeof testResult.score === 'number' && (
+                        <span className="text-xs font-mono font-bold px-2 py-0.5 rounded bg-black/40 border border-white/10 text-gray-200">
+                          Score: {testResult.score}/100
+                        </span>
+                      )}
                     </div>
-                    <p className="text-xs text-gray-400 mb-3">{testResult.message || testResult.error}</p>
+
+                    <p className="text-xs text-gray-300 mb-3">{testResult.reason || testResult.error || testResult.message}</p>
+
+                    {/* Metadata Detail Chips */}
+                    {testResult.details && (
+                      <div className="grid grid-cols-2 gap-2 mb-3 text-[11px] font-mono">
+                        <div className="bg-black/40 p-2 rounded border border-white/5 flex items-center justify-between">
+                          <span className="text-gray-400">MX Server:</span>
+                          <span className={testResult.details.mxFound ? 'text-emerald-400' : 'text-rose-400'}>
+                            {testResult.details.mxFound ? 'Verified' : 'None'}
+                          </span>
+                        </div>
+                        <div className="bg-black/40 p-2 rounded border border-white/5 flex items-center justify-between">
+                          <span className="text-gray-400">Disposable:</span>
+                          <span className={testResult.details.isDisposable ? 'text-rose-400' : 'text-emerald-400'}>
+                            {testResult.details.isDisposable ? 'Yes (Burner)' : 'No'}
+                          </span>
+                        </div>
+                        <div className="bg-black/40 p-2 rounded border border-white/5 flex items-center justify-between">
+                          <span className="text-gray-400">Account Type:</span>
+                          <span className={testResult.details.isRoleAccount ? 'text-amber-400' : 'text-emerald-400'}>
+                            {testResult.details.isRoleAccount ? 'Role (info/admin)' : 'Direct Person'}
+                          </span>
+                        </div>
+                        <div className="bg-black/40 p-2 rounded border border-white/5 flex items-center justify-between">
+                          <span className="text-gray-400">Mailbox Provider:</span>
+                          <span className={testResult.details.isFreeProvider ? 'text-amber-400' : 'text-emerald-400'}>
+                            {testResult.details.isFreeProvider ? 'Free (Gmail/Yahoo)' : 'Corporate / B2B'}
+                          </span>
+                        </div>
+                      </div>
+                    )}
                     
-                    <div className="bg-black/50 rounded p-3 overflow-x-auto custom-scrollbar">
+                    <div className="bg-black/60 rounded p-3 overflow-x-auto custom-scrollbar border border-white/5">
                       <pre className="text-[10px] text-gray-300 font-mono">
                         {JSON.stringify(testResult, null, 2)}
                       </pre>

@@ -1,59 +1,38 @@
 import { NextResponse } from "next/server";
-import * as dns from "dns";
-import { promisify } from "util";
-
-const resolveMx = promisify(dns.resolveMx);
+import { verifyEmail } from "@/lib/verifier/engine";
 
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { email } = body;
 
-    if (!email || !email.includes("@")) {
-      return NextResponse.json({ 
-        valid: false, 
-        error: "Invalid email format provided." 
-      }, { status: 400 });
-    }
-
-    const domain = email.split("@")[1];
-
-    try {
-      // Perform the MX Record Lookup
-      const records = await resolveMx(domain);
-      
-      if (records && records.length > 0) {
-        // Sort MX records by priority
-        records.sort((a, b) => a.priority - b.priority);
-
-        return NextResponse.json({
-          email,
-          domain,
-          valid: true,
-          mx_records: records,
-          message: "Domain is configured to receive email."
-        });
-      } else {
-        return NextResponse.json({
-          email,
-          domain,
-          valid: false,
-          error: "Domain exists but has no mail servers configured."
-        });
-      }
-    } catch (dnsError: any) {
+    // Support batch verification: { emails: string[] }
+    if (Array.isArray(body.emails)) {
+      const emails: string[] = body.emails.slice(0, 50); // Cap batch at 50 per request
+      const results = await Promise.all(emails.map(e => verifyEmail(e)));
       return NextResponse.json({
-        email,
-        domain,
-        valid: false,
-        error: "DNS resolution failed. Domain is likely dead or unregistered."
+        total: results.length,
+        safe_count: results.filter(r => r.verdict === "SAFE_TO_SEND").length,
+        results
       });
     }
 
+    // Single verification: { email: string }
+    const { email } = body;
+    if (!email || typeof email !== "string") {
+      return NextResponse.json({ 
+        valid: false, 
+        error: "Missing required 'email' or 'emails' parameter in JSON payload." 
+      }, { status: 400 });
+    }
+
+    const result = await verifyEmail(email);
+    return NextResponse.json(result);
+
   } catch (error: any) {
+    console.error("Verification API Error:", error);
     return NextResponse.json({ 
       valid: false, 
-      error: "Internal Server Error" 
+      error: "Internal Server Error during verification." 
     }, { status: 500 });
   }
 }
