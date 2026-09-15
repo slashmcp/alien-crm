@@ -82,15 +82,11 @@ const handler = NextAuth({
       return true;
     },
     async jwt({ token, user }) {
-      if (token?.email) {
+      if (user && user.email) {
         const dbUser = await prisma.user.findUnique({
-          where: { email: token.email }
+          where: { email: user.email }
         });
-        if (dbUser) {
-          token.role = dbUser.role;
-        } else {
-          token.role = "USER";
-        }
+        token.role = dbUser ? dbUser.role : "USER";
       }
       return token;
     },

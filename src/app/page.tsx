@@ -15,10 +15,10 @@ export default function AutomationAlienHome() {
       {/* Navigation */}
       <nav className="border-b border-white/5 bg-black/20 backdrop-blur-xl sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <div className="flex items-center gap-3">
+          <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
             <span className="text-3xl filter drop-shadow-[0_0_15px_rgba(34,197,94,0.5)]">👽</span>
             <span className="font-bold text-xl tracking-tight">Automation<span className="text-green-500 italic">Alien</span></span>
-          </div>
+          </Link>
           <div className="hidden md:flex gap-8 text-sm font-medium text-gray-400">
             <a href="#services" className="hover:text-white transition-colors">Infrastructure</a>
             <Link href="/verify" className="hover:text-white transition-colors flex items-center gap-1"><Shield size={14} className="text-green-500"/> Verification API</Link>

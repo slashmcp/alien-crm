@@ -36,9 +36,11 @@ export default function LoginPage() {
 
       <div className="w-full max-w-md relative z-10">
         <div className="text-center mb-10">
-          <span className="text-5xl filter drop-shadow-[0_0_15px_rgba(34,197,94,0.5)] block mb-4">👽</span>
-          <h1 className="text-3xl font-bold tracking-tight mb-2">Alien Portal</h1>
-          <p className="text-gray-400 text-sm">Sign in or create an account to access the infrastructure.</p>
+          <a href="/" className="inline-block hover:opacity-80 transition-opacity">
+            <span className="text-5xl filter drop-shadow-[0_0_15px_rgba(34,197,94,0.5)] block mb-4">👽</span>
+            <h1 className="text-3xl font-bold tracking-tight mb-2">Alien Portal</h1>
+          </a>
+          <p className="text-gray-400 text-sm mt-2">Sign in or create an account to access the infrastructure.</p>
         </div>
 
         <div className="bg-[#111] border border-white/10 p-8 rounded-2xl shadow-2xl backdrop-blur-md">
