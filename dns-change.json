@@ -1,0 +1,27 @@
+{
+  "Comment": "Switch automationalien.com to Vercel",
+  "Changes": [
+    {
+      "Action": "UPSERT",
+      "ResourceRecordSet": {
+        "Name": "automationalien.com.",
+        "Type": "A",
+        "TTL": 300,
+        "ResourceRecords": [
+          { "Value": "76.76.21.21" }
+        ]
+      }
+    },
+    {
+      "Action": "UPSERT",
+      "ResourceRecordSet": {
+        "Name": "www.automationalien.com.",
+        "Type": "CNAME",
+        "TTL": 300,
+        "ResourceRecords": [
+          { "Value": "cname.vercel-dns.com." }
+        ]
+      }
+    }
+  ]
+}
