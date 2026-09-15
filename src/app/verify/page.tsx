@@ -46,13 +46,14 @@ export default function VerifyLandingPage() {
       {/* Navigation */}
       <nav className="border-b border-white/10 bg-black/50 backdrop-blur-md sticky top-0 z-50">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-2">
+          <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
             <span className="text-2xl">👽</span>
             <span className="font-bold text-xl tracking-tight">Alien<span className="text-green-500">Verify</span></span>
-          </div>
+          </Link>
           <div className="flex gap-6 text-sm font-medium">
-            <a href="#demo" className="text-gray-400 hover:text-white transition-colors">Live API Demo</a>
-            <a href="#docs" className="text-gray-400 hover:text-white transition-colors">SDK Documentation</a>
+            <Link href="/" className="text-gray-400 hover:text-white transition-colors">Home</Link>
+            <a href="#demo" className="text-gray-400 hover:text-white transition-colors">Live Tester</a>
+            <a href="#docs" className="text-gray-400 hover:text-white transition-colors">SDK & API</a>
           </div>
         </div>
       </nav>
@@ -63,13 +64,13 @@ export default function VerifyLandingPage() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-500/10 text-green-400 text-xs font-bold mb-6 border border-green-500/20">
-              <Zap size={12} /> Designed for Autonomous Systems
+              <Zap size={12} /> Instant Email Verification
             </div>
             <h1 className="text-5xl font-extrabold tracking-tight mb-6 leading-tight">
-              Protect your sender reputation. <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-600">Autonomously.</span>
+              Stop email bounces. <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-600">Protect your sender score.</span>
             </h1>
             <p className="text-gray-400 text-lg mb-8 leading-relaxed">
-              When AI agents scrape and email leads at scale, hard bounces destroy your domain reputation. AlienVerify is a lightweight, headless MX verification API built specifically for LangChain, AutoGPT, and autonomous CRM systems to clean data before sending.
+              Sending emails to dead or fake addresses gets your domain blacklisted. AlienVerify checks any email address in milliseconds to confirm mail servers exist, catch burner emails, and guarantee your messages actually land.
             </p>
             
             {!leadSubmitted ? (

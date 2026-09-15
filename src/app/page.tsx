@@ -20,8 +20,8 @@ export default function AutomationAlienHome() {
             <span className="font-bold text-xl tracking-tight">Automation<span className="text-green-500 italic">Alien</span></span>
           </Link>
           <div className="hidden md:flex gap-8 text-sm font-medium text-gray-400">
-            <a href="#services" className="hover:text-white transition-colors">Infrastructure</a>
-            <Link href="/verify" className="hover:text-white transition-colors flex items-center gap-1"><Shield size={14} className="text-green-500"/> Verification API</Link>
+            <a href="#services" className="hover:text-white transition-colors">How It Works</a>
+            <Link href="/verify" className="hover:text-white transition-colors flex items-center gap-1"><Shield size={14} className="text-green-500"/> Email Verifier</Link>
           </div>
           <div className="flex items-center gap-4">
             <Link href="/dashboard" className="text-sm font-medium text-gray-400 hover:text-white transition-colors">Client Login</Link>
@@ -34,26 +34,26 @@ export default function AutomationAlienHome() {
         {/* Hero Section */}
         <section className="relative pt-32 pb-20 px-6 max-w-7xl mx-auto flex flex-col items-center text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-gray-300 text-xs font-bold mb-8 backdrop-blur-sm">
-            <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" /> B2B Cold Email Infrastructure & Autonomous Agents
+            <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" /> Automated Lead Generation & Client Outreach Systems
           </div>
           
           <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-8 leading-[1.1]">
-            We build machines that <br className="hidden md:block" />
+            We build systems that <br className="hidden md:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-emerald-500 to-green-600">
-              hunt leads while you sleep.
+              find new clients while you sleep.
             </span>
           </h1>
           
           <p className="text-xl text-gray-400 max-w-2xl mb-12 leading-relaxed">
-            Stop manually prospecting. We engineer custom AI agents, scraping infrastructure, and high-volume cold email systems for elite B2B sales teams.
+            Stop wasting hours manually searching for prospects. We set up automated lead finders, verified email lists, and hands-free outreach that book estimates and calls on your calendar.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
             <a href="#contact" className="bg-green-500 hover:bg-green-400 text-black px-8 py-4 rounded-full font-bold flex items-center justify-center transition-all hover:scale-105 active:scale-95">
-              Deploy Your System <ChevronRight size={18} className="ml-1" />
+              Get Your System <ChevronRight size={18} className="ml-1" />
             </a>
             <Link href="/verify" className="bg-white/5 hover:bg-white/10 border border-white/10 text-white px-8 py-4 rounded-full font-bold flex items-center justify-center transition-all backdrop-blur-sm">
-              <Terminal size={18} className="mr-2 text-green-500" /> Explore our Developer APIs
+              <Shield size={18} className="mr-2 text-green-500" /> Try the Free Email Verifier
             </Link>
           </div>
         </section>
@@ -61,8 +61,8 @@ export default function AutomationAlienHome() {
         {/* The Pipeline Section */}
         <section id="services" className="py-32 px-6 max-w-7xl mx-auto">
           <div className="text-center mb-20">
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">The Alien Infrastructure</h2>
-            <p className="text-gray-400">An end-to-end autonomous pipeline engineered for relentless volume.</p>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">How It Works</h2>
+            <p className="text-gray-400">A complete, hands-off pipeline designed to keep your schedule full of new jobs.</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
@@ -70,9 +70,9 @@ export default function AutomationAlienHome() {
               <div className="w-12 h-12 bg-black/50 border border-white/10 rounded-xl flex items-center justify-center mb-6 group-hover:border-green-500/50 transition-colors">
                 <Database className="text-green-500" size={24} />
               </div>
-              <h3 className="text-xl font-bold mb-3">Targeted Scraping</h3>
+              <h3 className="text-xl font-bold mb-3">1. Find Your Ideal Clients</h3>
               <p className="text-gray-400 text-sm leading-relaxed">
-                We build headless scripts that bypass anti-bot protections to scrape thousands of hyper-targeted B2B leads from Google Maps, Apollo, and hidden directories.
+                We automatically pull verified lists of businesses and property owners in your exact target market from Google Maps and verified directories—no manual hunting needed.
               </p>
             </div>
 
@@ -80,9 +80,9 @@ export default function AutomationAlienHome() {
               <div className="w-12 h-12 bg-black/50 border border-white/10 rounded-xl flex items-center justify-center mb-6 group-hover:border-green-500/50 transition-colors">
                 <Shield className="text-green-500" size={24} />
               </div>
-              <h3 className="text-xl font-bold mb-3">API Verification</h3>
+              <h3 className="text-xl font-bold mb-3">2. Verify Every Contact</h3>
               <p className="text-gray-400 text-sm leading-relaxed">
-                We pass every lead through our proprietary AlienVerify API. We aggressively filter out dead MX records and spam traps to protect your domain reputation.
+                Before sending a single message, our built-in verifier confirms every email is real and active. This prevents bounces, keeps you out of spam, and protects your inbox.
               </p>
             </div>
 
@@ -90,9 +90,9 @@ export default function AutomationAlienHome() {
               <div className="w-12 h-12 bg-black/50 border border-white/10 rounded-xl flex items-center justify-center mb-6 group-hover:border-green-500/50 transition-colors">
                 <Send className="text-green-500" size={24} />
               </div>
-              <h3 className="text-xl font-bold mb-3">Automated Outreach</h3>
+              <h3 className="text-xl font-bold mb-3">3. Automated Daily Outreach</h3>
               <p className="text-gray-400 text-sm leading-relaxed">
-                Leads are automatically dumped into a custom CRM and dripped out via Zoho or Google Workspace SMTP with perfectly aligned DKIM/SPF/DMARC records.
+                Personalized emails are sent out steadily every single day from your address. Interested prospects reply directly to you or book straight into your calendar.
               </p>
             </div>
           </div>
@@ -101,11 +101,11 @@ export default function AutomationAlienHome() {
         {/* CTA Section */}
         <section id="contact" className="py-32 px-6 max-w-4xl mx-auto text-center border-t border-white/5">
           <span className="text-6xl filter drop-shadow-[0_0_30px_rgba(34,197,94,0.3)] mb-6 block">🛸</span>
-          <h2 className="text-4xl font-bold mb-6">Stop buying leads. Start harvesting them.</h2>
+          <h2 className="text-4xl font-bold mb-6">Stop paying for shared leads. Own your pipeline.</h2>
           <p className="text-gray-400 mb-10 max-w-2xl mx-auto">
-            If you have a B2B offer that converts, but you don't have enough volume, we will build the machine that feeds you. Let's talk architecture.
+            Instead of fighting other businesses for expensive leads on platforms like Angi or Thumbtack, we build an automated outreach system that brings clients directly to you.
           </p>
-          <a href="mailto:will@automationalien.com?subject=I%20want%20to%20deploy%20an%20outbound%20system&body=Hey%20Will%2C%0A%0AI%20saw%20your%20site%20and%20I%27m%20interested%20in%20learning%20more%20about%20your%20lead%20gen%20infrastructure.%0A%0A" className="inline-flex bg-white hover:bg-gray-200 text-black px-10 py-5 rounded-full font-extrabold items-center justify-center transition-all hover:scale-105 active:scale-95 text-lg">
+          <a href="mailto:will@automationalien.com?subject=I%20want%20to%20set%20up%20an%20automated%20outreach%20system&body=Hey%20Will%2C%0A%0AI%20saw%20your%20site%20and%20want%20to%20learn%20how%20you%20can%20help%20us%20get%20more%20clients%20consistently.%0A%0A" className="inline-flex bg-white hover:bg-gray-200 text-black px-10 py-5 rounded-full font-extrabold items-center justify-center transition-all hover:scale-105 active:scale-95 text-lg">
             Email will@automationalien.com <Zap size={20} className="ml-2 text-green-600" />
           </a>
         </section>
