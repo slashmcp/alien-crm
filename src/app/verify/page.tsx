@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import { Shield, Zap, Terminal, Code, CheckCircle, XCircle, ArrowRight, Database } from "lucide-react";
 
 export default function VerifyLandingPage() {
